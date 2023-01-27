@@ -28,6 +28,15 @@ class flashcardBox extends React.Component {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    getNewRandomInt(old, min, max) {
+        num = 0
+        do {
+            num = getRandomInt(min,max) 
+        }
+        while (num === old )
+
+        return num
+    }
 
 
      flashQuestion(numCard) { 
@@ -74,7 +83,7 @@ class flashcardBox extends React.Component {
             {
                 key: 'bnext',
                 className: 'next_button',
-                onClick: () => this.setState({numCard: this.getRandomInt(0,cards.length), show: false})
+                onClick: () => this.setState({numCard: this.getNewRandomInt(0,cards.length), show: false})
             },
             // 'div'  // if I set this as div, then nothing works !? 
             'Next card'
